@@ -3,14 +3,25 @@
 //Styling
 import './App.css';
 
+
 //Components
+import Favorites from './Components/Favorites';
+import Modal from './Components/Modal';
+import Meals from './Components/Meals';
+import Search from './Components/Search';
+import Home from './Components/Home';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Hello!!!!!</h1>
-      </header>
+      <main>
+        {/* <Home /> */}
+        <Search />
+        {/* <Favorites /> */}
+        <Meals />
+        {/* <Modal /> */}
+      </main>
     </div>
   );
 }
