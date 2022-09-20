@@ -14,6 +14,7 @@ const useGlobalContext = () => {
 const AppProvider = ({ children }) => {
     const [loading, setLoading] = useState(false)
     const [meals, setMeals] = useState([])
+    const [searchTerm, setSearchTerm] = useState('')
 
     const fetchMeals = async (URL) => {
         setLoading(true)
@@ -31,11 +32,11 @@ const AppProvider = ({ children }) => {
         setLoading(false)
     } 
     useEffect(() => {
-        fetchMeals(allMealsURL)
-    }, [])
+        fetchMeals(`${allMealsURL}${searchTerm}`)
+    }, [searchTerm])
 
     return (
-        <AppContext.Provider value={{ loading, meals }}>
+        <AppContext.Provider value={{ loading, meals, setSearchTerm }}>
             { children }
         </AppContext.Provider>
     )
